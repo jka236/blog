@@ -19,4 +19,4 @@ class PostTests(APITestCase):
         data = {"title":"new", "author":1, "excerpt": "new", "content": "new"}
         url = reverse('blog_api:listcreate')
         response = self.clinet.post(url, data, format='json')
-        self.assertEqual(response.status_code, status_HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
