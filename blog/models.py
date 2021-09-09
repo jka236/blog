@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -23,6 +24,7 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=250)
     excerpt = models.TextField(null=True)
+    image = image = CloudinaryField('image', default='default.jpg')
     content = models.TextField()
     slug = models.SlugField(max_length=250, unique_for_date='published')
     published = models.DateTimeField(default=timezone.now)
